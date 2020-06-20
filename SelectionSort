@@ -1,0 +1,33 @@
+package test2;
+
+import java.lang.reflect.Array;
+
+public class SelectionSort {
+
+
+	private static int[] SelectionSort(int[] array) {
+		int min_index=0,temp,j;
+		for(int i=0;i<array.length-1;i++)
+		{
+			min_index=i;
+			for(j=i+1;j<array.length;j++)
+				if(array[j] < array[min_index])
+				{
+				min_index=j;
+				}
+				temp = array[min_index];
+				array[min_index] = array[i];
+				array[i] = temp;
+		}
+		return array;	
+	}
+
+	public static void main(String[] args) {
+		int[] array = {8,5,2,9,5,6,3};
+		array = SelectionSort(array);
+		for(int i=0;i<array.length;i++)
+        System.out.print(array[i]+" "); 
+	}
+
+
+}
