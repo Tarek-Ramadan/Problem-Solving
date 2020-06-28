@@ -1,0 +1,66 @@
+public class mergeSort {
+
+
+	private static void merge(int[] array, int low,int m, int high) {
+		
+		int len1 = m-low+1;
+		int len2 = high-m;
+		int L[] = new int[len1];
+		int R[] = new int[len2];
+		for(int i = 0;i<len1;++i)
+			L[i] = array[low+i];
+		for(int j=0;j<len2;++j)
+			R[j] = array[m+1+j];
+		int i=0,j=0;
+		int k=low;
+		while(i<len1 && j<len2)
+		{
+			if(L[i] <= R[j])
+			{
+				array[k] = L[i];
+				i++;
+			}
+			else {
+				array[k] = R[j];
+				j++;
+			}
+			k++;
+		}
+        while (i < len1) { 
+            array[k] = L[i]; 
+            i++; 
+            k++; 
+        } 
+  
+        while (j < len2) { 
+            array[k] = R[j]; 
+            j++; 
+            k++; 
+        } 
+		
+
+	}
+	private static void Sort(int[] array,int low, int high)
+	{
+        System.out.println(Arrays.toString(array));
+		if(high>low)
+		{
+		int m = (low+high)/2;
+		Sort(array,low,m);
+		Sort(array,m+1,high);
+		merge(array,low,m,high);
+		}
+		
+	}
+
+	public static void main(String[] args) {
+		int[] array = {8,5,2,9,5,6,3};
+		int low=0, n =array.length;
+		int high =n-1;
+		Sort(array,low,high);
+		for(int i=0;i<array.length;i++)
+        System.out.print(array[i]+" "); 
+	}
+
+
+}
