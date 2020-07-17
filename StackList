@@ -1,0 +1,103 @@
+
+public class StackList {
+    public static class list{
+        int size=0;
+        node head = null;
+        int index=0;
+        public list(int s)   {
+            this.size=s;
+        }
+        public void display() 
+        { 
+            // check for stack underflow 
+            if (head == null) { 
+                System.out.printf("\nStack Underflow"); 
+              
+            } 
+            else { 
+                node temp = head; 
+                while (temp != null) { 
+      
+                    // print node data 
+                    System.out.printf("%d->", temp.value); 
+      
+                    // assign temp link to temp 
+                    temp = temp.next; 
+                } 
+            } 
+        } 
+     
+        boolean isEmpty(){
+            if (size == 5)
+            return true;
+            else return false;
+        }
+        void push(int value){
+         node n= new node(value);
+        if(size !=0){
+            if(index==0){
+                head =n;
+            head.next = null;
+        }
+        else{
+            
+            n.next = head;
+            head =n;
+            
+        }
+        size --;
+        index++;
+        System.out.println("inserting "+head.value);
+
+        }
+        else System.out.println("The list is full");
+        }
+        int pop(){
+            if(isEmpty() == true)
+            {
+            System.out.println("list is empty");
+            return 0;}
+            else {
+           node temp = head;
+           if(temp.next != null)
+           {head =null;
+           head = temp.next;
+           } 
+           index--;
+           size++;
+           System.out.println("popping "+temp.value);
+           return temp.value;
+
+            }
+        }
+        void peek(){
+            System.out.println(""+head.value);
+        }
+    }
+    public static class node{
+        int value;
+        node next = null;
+        node(int v){
+          this.value = v;
+        }
+
+    }
+
+
+
+    public static void  main(String[] args) {
+        list l1 = new list(5);
+        l1.push(1);
+        l1.push(2);
+        l1.push(3);
+        l1.push(4);
+        l1.push(5);
+        l1.push(6);
+      l1.display();
+      l1.pop();
+      l1.pop();
+      l1.display();
+
+    }
+    
+}
