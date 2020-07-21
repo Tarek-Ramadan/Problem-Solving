@@ -1,0 +1,42 @@
+import java.util.*;
+
+class Program {
+  // This is the class of the input root. Do not edit it.
+  public static class BinaryTree {
+    int value;
+    BinaryTree left;
+    BinaryTree right;
+
+    BinaryTree(int value) {
+      this.value = value;
+      this.left = null;
+      this.right = null;
+    }
+  }
+
+  public static List<Integer> branchSums(BinaryTree root) {
+    // Write your code here.
+		List<Integer> s = new ArrayList<Integer>();
+			int sum=0;
+		helper(sum,root,s);
+				return s;
+
+		
+}
+	public static  void  helper(int sum,BinaryTree root, List<Integer> s)
+	{
+		if(root == null)
+		{
+		return ;
+		}
+				sum+= root.value;
+		if(root.left == null && root.right == null)
+		{
+			System.out.println(""+sum);
+			s.add(sum);
+		}
+		helper(sum,root.left,s);
+		helper(sum,root.right,s);
+
+  }
+	}
