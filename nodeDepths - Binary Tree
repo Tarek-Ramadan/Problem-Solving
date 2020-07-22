@@ -1,0 +1,29 @@
+import java.util.*;
+
+class Program {
+
+  public static int nodeDepths(BinaryTree root) {
+		int depth=0;
+		int sum = helper(root,depth);
+		System.out.println(""+sum);
+    return sum;
+  }
+public static int helper(BinaryTree node,int depth)
+{ 
+	if(node == null) return 0;
+	 	System.out.println(""+depth+"   ---"+node.value);
+	return depth+helper(node.left,depth+1)+helper(node.right,depth+1);
+}
+ 
+  static class BinaryTree {
+    int value;
+    BinaryTree left;
+    BinaryTree right;
+
+    public BinaryTree(int value) {
+      this.value = value;
+      left = null;
+      right = null;
+    }
+  }
+}
