@@ -1,0 +1,63 @@
+import java.util.Arrays;
+
+class TurnaryHeap {
+ 
+    public static boolean checkTernaryHeap(int Array[]) {
+      int Current=0,Left=0,Middle=0,Right =0,count=0;
+      int len = Array.length;
+      if(len ==1)
+      return true;
+      else if(len<=3)
+      {
+        if(Array[0]<Array[1])
+        return false;
+        if(Array[0]<Array[2])
+        return false;
+        return true;
+      }
+      for(int i=0;i<=Math.round((Array.length-2)/3);i++)
+      {
+        Left = (3*i)+1;
+        Middle = (3*i)+2;
+        Right = (3*i)+3;
+        if(Array[i]< Array[Left] || Array[i] < Array[Middle] || Array[i] < Array[Right])
+        return false;
+      } 
+      return true; 
+    }
+    public static void printRelations(int Array[]) {
+      int Current=0,Left=0,Middle=0,Right =0;
+      if(Array.length >3){
+      for(int i=0;i<=Math.round((Array.length-2)/3);i++)
+      {
+        Left = (3*i)+1;
+        Middle = (3*i)+2;
+        Right = (3*i)+3;
+        System.out.println("Current: "+Array[i]+" Left: "+Array[Left]+" Middle: "+Array[Middle]+" Right: "+Array[Right]);
+      } }
+      else System.out.println("Couldnt print Tree is short !");
+    }
+    public static void printEachNode(int Array[]) {
+      int Current=0,Left=0,Middle=0,Right =0;
+      if(Array.length>3)
+      {
+      for(int i=0;i<=Math.round((Array.length-2)/3);i++)
+      {
+        Left = (3*i)+1;
+        Middle = (3*i)+2;
+        Right = (3*i)+3;
+        System.out.println("        "+Array[i]);
+        System.out.println("/"+"\t|"+"\t\\");
+        System.out.println(""+Array[Left]+"\t"+Array[Middle]+"  \t"+Array[Right]);
+      } }
+      else System.out.println("Couldnt print Tree is short !");
+    }
+
+    public static void main(String[] args) {
+        int[] Heap1 = new int[]{16,14,10,8,7,9,3,8,4,1};
+        printEachNode(Heap1);
+        System.out.println("Heap "+Arrays.toString(Heap1)+" This heap is = "+checkTernaryHeap(Heap1));
+
+  
+      }
+   }
