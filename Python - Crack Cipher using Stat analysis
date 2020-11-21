@@ -1,0 +1,17 @@
+from collections import Counter 
+from collections import OrderedDict 
+aplha= OrderedDict({ "a":0.080, "b": 0.015, "c": 0.030,"d": 0.040, "e": 0.130, "f": 0.020, "g": 0.015, "h": 0.060 , "i": 0.065, "j": 0.005, "k": 0.005, "l": 0.035, "m": 0.030 , "n": 0.070, "o": 0.080 , "p": 0.020, "q": 0.002, "r": 0.065 , "s": 0.060 , "t": 0.090, "u": 0.030, "v": 0.010, "w": 0.015, "x": 0.005, "y": 0.020, "z": 0.002})
+print(aplha)
+cipher = "TEBKFKQEBZLROPBLCERJXKBSBKQP"
+freq = Counter(cipher) 
+result=[0]*26
+freq = {v:f / len(cipher) for v,f in freq.items()}
+for i in range(0,26,1):
+    for v,f in freq.items():
+        c=ord(v.lower())-97-i
+        if c < 0:
+            c=ord(v.lower())-97+(26-i)
+        c = chr(c +97)
+        p = aplha.get(c)
+        result[i] =result[i]+ f*p
+print(result)
