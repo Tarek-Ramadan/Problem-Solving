@@ -1,0 +1,15 @@
+class Solution:
+    def getMaximumGenerated(self, n: int) -> int:
+        nums=[0]*(n+1)
+        if n == 1:
+            return 1
+        for i in range(0,math.ceil(len(nums)/2),1):
+            if i ==0:
+                nums[i]=0
+            if i ==1:
+                nums[i]=1
+            if 2*i >= len(nums) or 2*i+1 >= len(nums):
+                break
+            nums[2 * i] = nums[i]
+            nums[2 * i + 1] = nums[i] + nums[i + 1]
+        return max(nums)
