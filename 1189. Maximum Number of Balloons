@@ -1,0 +1,16 @@
+class Solution:
+    def maxNumberOfBalloons(self, text: str) -> int:
+        word ="balloon"
+        res = Counter(text)
+        result =[]
+        for c in word:
+            if res.get(c) == None or res.get(c) ==0:
+                return 0
+            if c == 'l' or c =='o':
+                result.append(res.get(c)//2)
+            result.append(res.get(c))
+        print(result)
+        if None in result:
+            return 0
+        else:
+            return min(result)
