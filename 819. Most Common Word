@@ -1,0 +1,12 @@
+import re 
+class Solution:
+    def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
+        paragraph = paragraph.lower()
+        # paragraph = paragraph.translate(str.maketrans(' ', ' ', string.punctuation))
+        paragraph = re.sub(r'[^\w\s]', ' ', paragraph) 
+        listo = paragraph.split()
+        newlisto =[]
+        for word in listo:
+            if word not in banned:
+                newlisto.append(word)
+        return (max(newlisto,key=newlisto.count))
