@@ -3,6 +3,7 @@ class Solution:
     def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
         paragraph = paragraph.lower()
         # paragraph = paragraph.translate(str.maketrans(' ', ' ', string.punctuation))
+        #normalized_str = ''.join([c.lower() if c.isalnum() else ' ' for c in paragraph])
         paragraph = re.sub(r'[^\w\s]', ' ', paragraph) 
         listo = paragraph.split()
         newlisto =[]
