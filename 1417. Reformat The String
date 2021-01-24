@@ -1,0 +1,32 @@
+class Solution:
+    def reformat(self, s: str) -> str:
+        num=""
+        letters=""
+        ans=""
+        flag = "z"
+        
+        for c in s:
+            if c.isdigit():num += c
+            else:letters+=c
+                
+        if len(num) != len(letters):
+            if min(len(num),len(letters))+1 != max(len(num),len(letters)):
+                return ""
+       
+        for i in range(max(len(num),len(letters))):
+                if i == min(len(num),len(letters)):
+                    if  flag == "a":
+                        ans+=letters[i]
+                    if  flag == "b":
+                        ans+=num[i]
+                    if  flag == "z":
+                        if num:ans+=num[i]
+                        if letters:ans+=letters[i]
+                    break
+                if len(num)<= len(letters):
+                    ans+=letters[i] +num[i]
+                    flag = "a"
+                if len(num)> len(letters):
+                    ans+=num[i]+letters[i]
+                    flag = "b"
+        return ans
