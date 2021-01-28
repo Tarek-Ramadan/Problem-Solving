@@ -1,0 +1,11 @@
+class Solution:
+    def thousandSeparator(self, n: int) -> str:
+        z=str(n)
+        ans=""
+        counter=0
+        for i in range (len(z)-1,-1,-1):
+            ans+=z[i]
+            counter+=1
+            if counter %3 ==0 and i != 0:
+                ans+='.'
+        return ans[::-1]
