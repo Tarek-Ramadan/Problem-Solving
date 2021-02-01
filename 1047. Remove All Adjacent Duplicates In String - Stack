@@ -1,0 +1,20 @@
+# class Solution:
+#     def removeDuplicates(self, S: str) -> str:
+#         i=0
+#         while(True):
+#             if i>=len(S) or i+1>=len(S):break
+#             if S[i] == S[i+1]:
+#                 S = S[0:i]+S[i+2:]
+#                 if i>0:i=i-1
+#                 continue
+#             i+=1
+#         return S
+class Solution:
+    def removeDuplicates(self, S: str) -> str:
+        st = []
+        for i in S:
+            if st == [] or st[-1] != i:
+                st.append(i)
+            else:
+                st.pop()
+        return ''.join(st)
