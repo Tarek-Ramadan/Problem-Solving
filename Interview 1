@@ -1,0 +1,32 @@
+# For example, given the input “46”, the function should print:
+# 
+# 1416
+# 11141116
+# 31143116
+# 132114132116
+# 11131221141113122116
+# 
+def func(x):
+    s = str(x)
+    count = 1
+    ans =''
+    flag =False
+    for j in range(5):
+        for i in range(len(s)-1):
+            if s[i] == s[i+1]:
+                count+=1
+                if i+1 ==len(s)-1 and flag == False:ans+=str(count)+s[i]
+            else:
+                ans+=str(count)+s[i]
+                count=1
+                flag = True  
+            if i+1 == len(s)-1 and s[-2] != s[-1]:
+                ans+=str(count)+s[i+1]
+        s= ans
+        print(ans)
+        ans=''
+        count =1
+        flag = False
+
+x = 46
+func(x)
