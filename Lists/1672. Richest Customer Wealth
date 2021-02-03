@@ -1,0 +1,7 @@
+class Solution:
+    def maximumWealth(self, accounts: List[List[int]]) -> int:
+        maxo=0
+        for l in accounts:
+            if sum(l) >maxo:
+                maxo = sum(l)
+        return maxo
