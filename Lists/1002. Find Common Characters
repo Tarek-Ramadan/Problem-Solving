@@ -1,0 +1,8 @@
+from collections import Counter
+class Solution:
+    def commonChars(self, words: List[str]) -> List[str]:
+        Freq = Counter(words[0])
+        print(Freq)
+        for w in words:
+              Freq &= Counter(w)
+        return Freq.elements()
